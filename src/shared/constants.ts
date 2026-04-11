@@ -14,6 +14,9 @@ export const CLAW_CLI = "claw";
 /** Default timeout for a single execution run (seconds). */
 export const DEFAULT_TIMEOUT_SEC = 300;
 
+/** Maximum allowed foreground timeout (seconds). Values above this are rejected. */
+export const MAX_FOREGROUND_TIMEOUT_SEC = 3600;
+
 /** Grace period after SIGTERM before SIGKILL (seconds). */
 export const DEFAULT_GRACE_SEC = 10;
 

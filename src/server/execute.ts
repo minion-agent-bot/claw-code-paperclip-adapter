@@ -30,6 +30,7 @@ import {
   DEFAULT_TIMEOUT_SEC,
   DEFAULT_GRACE_SEC,
   DEFAULT_MODEL,
+  MAX_FOREGROUND_TIMEOUT_SEC,
   SESSION_ID_REGEX,
   TOKEN_USAGE_REGEX,
   COST_REGEX,
@@ -292,6 +293,11 @@ export async function execute(
   const clawCmd = cfgString(config.clawCommand) || CLAW_CLI;
   const model = cfgString(config.model) || DEFAULT_MODEL;
   const timeoutSec = cfgNumber(config.timeoutSec) || DEFAULT_TIMEOUT_SEC;
+  if (timeoutSec > MAX_FOREGROUND_TIMEOUT_SEC) {
+    throw new Error(
+      `foreground_timeout ${timeoutSec}s exceeds maximum cap ${MAX_FOREGROUND_TIMEOUT_SEC}s`,
+    );
+  }
   const graceSec = cfgNumber(config.graceSec) || DEFAULT_GRACE_SEC;
   const extraArgs = cfgStringArray(config.extraArgs);
   const persistSession = cfgBoolean(config.persistSession) !== false;

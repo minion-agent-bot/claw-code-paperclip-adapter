@@ -41,7 +41,7 @@ Register the adapter in your Paperclip server configuration:
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | `model` | string | `claude-sonnet-4-20250514` | Model ID to use |
-| `timeoutSec` | number | `300` | Execution timeout in seconds |
+| `timeoutSec` | number | `300` | Execution timeout in seconds (max: 3600) |
 | `graceSec` | number | `10` | Grace period after SIGTERM before SIGKILL |
 | `persistSession` | boolean | `true` | Resume sessions across heartbeats |
 | `clawCommand` | string | `claw` | Path to the claw CLI binary |

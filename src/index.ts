@@ -44,7 +44,7 @@ open-source alternative to Claude Code.
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | model | string | claude-sonnet-4-20250514 | Model ID to use |
-| timeoutSec | number | 300 | Execution timeout in seconds |
+| timeoutSec | number | 300 | Execution timeout in seconds (max: 3600; values above this are rejected) |
 | graceSec | number | 10 | Grace period after SIGTERM before SIGKILL |
 
 ## Session & Workspace
